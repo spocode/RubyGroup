@@ -1,4 +1,4 @@
-class Admin::OrganizationsController < ApplicationController
+class Admin::OrganizationsController < Admin::BaseController
   
   def index
     @organizations = Organization.all
@@ -10,6 +10,24 @@ class Admin::OrganizationsController < ApplicationController
   
   def new
     @organization = Organization.new
+  end
+  
+  def create
+    @organization = Organization.new( params[:organization] )
+    if @organization.save
+      redirect_to admin_organizations_path
+    end
+  end
+  
+  def edit
+    @organization = Organization.find params[:id]
+  end
+  
+  def update
+    @organization = Organization.find params[:id]
+    if @organization.update_attributes( params[:organization] )
+      redirect_to admin_organizations_path
+    end
   end
   
 end

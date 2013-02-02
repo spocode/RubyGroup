@@ -1,0 +1,7 @@
+-content_for :content do
+  .row
+    .span4
+      = link_to "Organizations", admin_organizations_path
+    .span8
+      = yield
+= render template: "layouts/application"

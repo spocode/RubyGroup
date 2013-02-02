@@ -1,8 +1,14 @@
-= form_for [:admin, @organization] do |f|
-  = f.label :name, "Name"
-  = f.text_field :name
-  = f.label :volunteer_coordinator_name
-  = f.text_field :volunteer_coordinator_name
-  = f.label :volunteer_coordinator_email
-  = f.text_field :volunteer_coordinator_email
-  = f.submit
+= form_for [:admin, @organization], html: { class: "form-horizontal"} do |f|
+  .control-group
+    = f.label :name, class: "control-label"
+    .controls
+      = f.text_field :name
+  .control-group
+    = f.label :volunteer_coordinator_name, class: "control-label"
+    .controls
+      = f.text_field :volunteer_coordinator_name
+  .control-group
+    = f.label :volunteer_coordinator_email, class: "control-label"
+    .controls
+      = f.text_field :volunteer_coordinator_email
+  = f.submit class: "btn btn-primary"

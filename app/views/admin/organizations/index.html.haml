@@ -1,6 +1,21 @@
-.row
-  .span4
-    = link_to "Organizations", admin_organizations_path
-  .span8
-    - for organization in @organizations
-      = link_to organization.name, [:admin, organization]
+= link_to "New Organization", new_admin_organization_path
+%table
+  %tr
+    %th
+      Name
+    %th
+      Coordinator Name
+    %th
+      Coordinator Email
+  - for organization in @organizations
+    %tr
+      %td
+        = link_to organization.name, [:admin, organization]
+      %td
+        = organization.volunteer_coordinator_name
+      %td
+        = organization.volunteer_coordinator_email
+      %td
+        = link_to "Edit", edit_admin_organization_path( organization )
+  
+      
