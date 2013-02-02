@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:edit, :update]
   
   def index
     @organizations = Organization.all
@@ -10,21 +10,8 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
   end
 
-  def new
-    @organization = Organization.new
-  end
-
   def edit
     @organization = Organization.find(params[:id])
-  end
-
-  def create
-    @organization = Organization.new(params[:organization])
-    if @organization.save
-      redirect_to @organization, notice: 'Organization was successfully created.'
-    else
-      render action: "new"
-    end
   end
 
   def update
