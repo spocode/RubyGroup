@@ -1,7 +1,12 @@
 -content_for :content do
   .row
     .span4
-      = link_to "Organizations", admin_organizations_path
+      .well
+        %ul.nav.nav-list
+          %li{class:( params[:controller]=~/organizations/ ? "active" : "" )}
+            = link_to "Organizations", admin_organizations_path
+          %li{class:( params[:controller]=~/users/ ? "active" : "" )}
+            = link_to "Users", admin_users_path
     .span8
       = yield
 = render template: "layouts/application"

@@ -2,6 +2,8 @@ Rails3MongoidDevise::Application.routes.draw do
   
   namespace :admin do
     resources :organizations
+    resources :users
+    root to: "dashboard#index"
   end
   
   authenticated :user do
