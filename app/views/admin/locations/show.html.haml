@@ -1,0 +1,8 @@
+= @location.name
+= link_to "Edit", edit_admin_organization_location_path( @organization, @location)
+%ul
+  - for need in @location.needs
+    %li
+      = need.description
+      
+

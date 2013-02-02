@@ -1,0 +1,49 @@
+= form_for [:admin, @organization, @location], html: { class: "form-horizontal" } do |f|
+  .control-group
+    = f.label :name, class: "control-label"
+    .controls
+      = f.text_field :name
+  %fieldset.fieldset
+    %legend Address
+    .control-group
+      = f.label :address_1, class: "control-label"
+      .controls
+        = f.text_field :address_1
+    .control-group
+      = f.label :address_2, class: "control-label"
+      .controls
+        = f.text_field :address_2
+    .control-group
+      = f.label :city, class: "control-label"
+      .controls
+        = f.text_field :city
+    .control-group
+      = f.label :state, class: "control-label"
+      .controls
+        = f.text_field :state
+    .control-group
+      = f.label :zip, class: "control-label"
+      .controls
+        = f.text_field :zip
+  %fieldset.fieldset
+    %legend Drop Off Address
+    .control-group
+      = f.label :d_address_1, "Address 1", class: "control-label"
+      .controls
+        = f.text_field :d_address_1
+    .control-group
+      = f.label :d_address_2, "Address 2", class: "control-label"
+      .controls
+        = f.text_field :d_address_2
+    .control-group
+      = f.label :d_city, "City", class: "control-label"
+      .controls
+        = f.text_field :d_city
+    .control-group
+      = f.label :d_state, "State", class: "control-label"
+      .controls
+        = f.text_field :d_state
+    .control-group
+      = f.label :d_zip, "Zip", class: "control-label"
+      .controls
+        = f.text_field :d_zip

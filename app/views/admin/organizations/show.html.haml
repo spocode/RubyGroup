@@ -1,3 +1,9 @@
 = @organization.name
-- for user in @organization.users
-  = user.email
+%h2 Locations
+%ul
+  - for location in @organization.locations
+    %li
+      = link_to location.name, admin_organization_location_path( @organization, location )
+      \- 
+      = pluralize location.needs.count, "need"
+=link_to "Create A Location", new_admin_organization_location_path( @organization, @location )

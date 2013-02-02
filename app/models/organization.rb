@@ -7,4 +7,12 @@ class Organization
   embeds_many :needs
   embeds_many :locations
   
+  def self.users_organizations( user )
+    if user.admin?
+      all
+    else
+      user.organizations
+    end
+  end
+  
 end

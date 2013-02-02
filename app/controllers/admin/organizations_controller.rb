@@ -1,11 +1,12 @@
 class Admin::OrganizationsController < Admin::BaseController
   
   def index
-    @organizations = Organization.all
+    @organizations = Organization.users_organizations( current_user )
   end
   
   def show
     @organization = Organization.find params[:id]
+    redirect_to "/admin" unless can_edit_org( @organization )
   end
   
   def new
@@ -32,6 +33,12 @@ class Admin::OrganizationsController < Admin::BaseController
     if @organization.update_attributes( params[:organization] )
       redirect_to admin_organizations_path
     end
+  end
+  
+  private
+  
+  def can_edit_org( org )
+    current_user.admin? || current_user.organizations.include?( org )
   end
   
 end
