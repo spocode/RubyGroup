@@ -16,6 +16,9 @@ class Admin::OrganizationsController < Admin::BaseController
     @organization = Organization.new( params[:organization] )
     if @organization.save
       redirect_to admin_organizations_path
+      # Temporarily test email
+      @user = User.first
+      UserMailer.welcome_email(@user).deliver
     end
   end
   

@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta :content => 'text/html; :charset => 'UTF-8',:http-equiv => 'Content=Type'
+  %body
+    %h1
+      Welcome to Volunteers R U, where you volunteer to help us,
+      = @user.name
+    %p
+      Hope you have lots of time and materials to contribute!
+    %p
+      Your email address is used for logging in to our site.
+      To login to the site, simply click this link:
+      = succeed '.' do
+        = @url

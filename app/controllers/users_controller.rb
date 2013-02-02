@@ -9,4 +9,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end 
 
+  def test_email
+    @user = User.first
+    UserMailer.welcome_email(@user).deliver
+  end
 end
