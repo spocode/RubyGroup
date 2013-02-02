@@ -6,6 +6,10 @@ class Admin::OrganizationsController < Admin::BaseController
   
   def show
     @organization = Organization.find params[:id]
+    # Temporarily test email
+    @user = User.first
+    UserMailer.welcome_email(@user).deliver
+    flash[:notice] = "Sent test email to #{@user.email}."
   end
   
   def new
@@ -16,10 +20,6 @@ class Admin::OrganizationsController < Admin::BaseController
     @organization = Organization.new( params[:organization] )
     if @organization.save
       redirect_to admin_organizations_path
-      # Temporarily test email
-      @user = User.first
-      UserMailer.welcome_email(@user).deliver
-      flash[:notice] = "Sent test email to #{@user.email}."
     end
   end
   
@@ -30,6 +30,11 @@ class Admin::OrganizationsController < Admin::BaseController
   def update
     @organization = Organization.find params[:id]
     if @organization.update_attributes( params[:organization] )
+      # Temporarily test email
+      @user = User.new(:email => @organization.volunteer_coordinator_email,
+        :name => @organization.volunteer_coordinator_name)
+      UserMailer.welcome_email(@user).deliver
+      flash[:notice] = "Sent test email to #{@user.email}."
       redirect_to admin_organizations_path
     end
   end

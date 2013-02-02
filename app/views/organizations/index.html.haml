@@ -1,18 +1,25 @@
-%h1 Listing organizations
-
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-  - @organizations.each do |organization|
-    %tr
-      %td= organization.name
-      %td= link_to 'Show', organization
-      %td= link_to 'Edit', edit_organization_path(organization)
-      %td= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' }
-
+%h1 Find a need:
+%h3 Select an organization below to see a list of specific locations and needs.
+%br
 %br
 
-= link_to 'New Organization', new_organization_path
+%table.table
+  %tr
+    - @organizations.each do |organization|
+      %tr
+        %td
+          .accordian_box
+            = organization.name
+            
+            =# each location needs to be hidden until the parent org is clicked.
+            - organization.locations.each do |location|
+              .location_subtree
+                = location.name
+                
+                =# each need should be hidden until the parent location is clicked.
+                - location.needs.each do |need|
+                  .need_subtree
+                    = need.type
+                    = need.description
+%br
+
