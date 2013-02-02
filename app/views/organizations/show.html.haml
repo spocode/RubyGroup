@@ -1,0 +1,6 @@
+%h1= @organization.name
+
+%h2 Needs
+%ul
+  - for need in @organization.needs
+    %li= need.name
