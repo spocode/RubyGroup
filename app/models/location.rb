@@ -12,4 +12,5 @@ class Location
   field :d_state, type: String
   field :d_zip, type: String
   embedded_in :organization, class_name: "Organization", inverse_of: :locations
+  embeds_many :needs
 end
