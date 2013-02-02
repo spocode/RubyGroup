@@ -19,7 +19,7 @@ class Admin::OrganizationsController < Admin::BaseController
       # Temporarily test email
       @user = User.first
       UserMailer.welcome_email(@user).deliver
-      flash[:notice] = "Sent test email to #{@user.email}"
+      flash[:notice] = "Sent test email to #{@user.email}."
     end
   end
   
