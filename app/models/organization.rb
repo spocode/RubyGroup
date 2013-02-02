@@ -5,5 +5,6 @@ class Organization
   field :volunteer_coordinator_email, type: String
   has_and_belongs_to_many :users
   embeds_many :needs
+  embeds_many :locations
   
 end
