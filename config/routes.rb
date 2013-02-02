@@ -1,5 +1,10 @@
 Rails3MongoidDevise::Application.routes.draw do
   
+  resources :organizations do
+    resources :needs
+  end
+
+
   namespace :admin do
     resources :organizations
     resources :users

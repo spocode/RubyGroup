@@ -3,8 +3,12 @@
     = link_to "Home", root_path, :class => 'brand'
     - if user_signed_in?
       %ul.nav
-        %li{ class: ( params[:controller]=~/admin/ ? "active" : "") }
-          = link_to "Admin", admin_root_path
+        -if current_user.admin?
+          %li{ class: ( params[:controller]=~/admin/ ? "active" : "") }
+            = link_to "Admin", admin_root_path
+    %ul.nav
+      %li
+        = link_to "Organizations", organizations_path
     %ul.nav.pull-right
       - if user_signed_in?
         %li
