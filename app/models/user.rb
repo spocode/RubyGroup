@@ -5,7 +5,7 @@ class User
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   ## Database authenticatable
@@ -28,6 +28,14 @@ class User
   field :last_sign_in_at,    :type => Time
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
+  
+  ## Invitable
+  field :invitation_token,   :type => String
+  field :invitation_sent_at, :type => Time
+  field :invitation_accepted_at, :type => Time
+  field :invitation_limit,   :type => Integer
+  field :invited_by_id,      :type => Integer
+  field :invited_by_type,    :type => String
 
   ## Confirmable
   # field :confirmation_token,   :type => String
