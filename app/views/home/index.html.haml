@@ -1,21 +1,34 @@
+.box
+  %br
+  .right
+    = button_tag 'Organization Log-In'
+  %br
+  %br
+  %br
 %h3 
-  Volunteer & Donation DB
+  &nbsp&nbsp&nbspVolunteer & Donation DB
+.box
+  %br
+  &nbsp&nbsp&nbsp
+  = button_tag "Find a Need"
+  &nbsp&nbsp&nbsp
+  Search by Organization/Location
+  %br
+  %br
+  &nbsp&nbsp&nbsp
+  = button_tag "Fill a Need"
+  &nbsp&nbsp&nbsp
+  Search by Specific Donation Need
+  %br
+  %br
+  &nbsp&nbsp&nbsp
+  = button_tag "Give Some Time"
+  &nbsp&nbsp&nbsp
+  Find Volunteering Opportunities
 
+  / - @users.each do |user|
+  /   %p
+  /     User: #{link_to user.name, user}
+  %br
+  %br
 
-= button_tag "Find a Need"
-%br
-%br
-= button_tag "Fill a Need"
-%br
-%br
-= button_tag "Give Some Time"
-
-/ - @users.each do |user|
-/   %p
-/     User: #{link_to user.name, user}
-%br
-%br
-
-%h4
-  Organization Log-In:&nbsp
-  = text_field_tag 'log-in'
