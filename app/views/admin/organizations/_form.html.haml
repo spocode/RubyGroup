@@ -1,0 +1,8 @@
+= form_for [:admin, @organization] do |f|
+  = f.label :name, "Name"
+  = f.text_field :name
+  = f.label :volunteer_coordinator_name
+  = f.text_field :volunteer_coordinator_name
+  = f.label :volunteer_coordinator_email
+  = f.text_field :volunteer_coordinator_email
+  = f.submit

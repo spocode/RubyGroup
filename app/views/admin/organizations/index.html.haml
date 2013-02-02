@@ -1,0 +1,6 @@
+.row
+  .span4
+    = link_to "Organizations", admin_organizations_path
+  .span8
+    - for organization in @organizations
+      = link_to organization.name, [:admin, organization]
