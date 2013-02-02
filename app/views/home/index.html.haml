@@ -1,4 +1,21 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+%h3 
+  Volunteer & Donation DB
+
+
+= button_tag "Find a Need"
+%br
+%br
+= button_tag "Fill a Need"
+%br
+%br
+= button_tag "Give Some Time"
+
+/ - @users.each do |user|
+/   %p
+/     User: #{link_to user.name, user}
+%br
+%br
+
+%h4
+  Organization Log-In:&nbsp
+  = text_field_tag 'log-in'
